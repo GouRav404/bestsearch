@@ -24,21 +24,28 @@ $table=$_SESSION['table'];
 <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
           <a class="navbar-brand" href="#">Best Search Application</a>
         </div>
-        
-            
+
+          <div class="collapse navbar-collapse" id="navbar"> 
             <ul class="nav navbar-nav navbar-right">
             <li><a href="#"><span class="glyphicon glyphicon-user"></span>&nbsp; <?php echo $youid; ?></a></li>
             <li><a href="logout.php?logout"><span class="glyphicon glyphicon-log-out"></span>&nbsp; Logout</a></li>
           </ul>
-        !--/.nav-collapse -->
-      </div>
+        <!--/.nav-collapse -->
+        </div>
+    </div>
 </nav>
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-2" style="margin-top: 80px;">
+    <div class="col-sm-2" style="margin-top: 80px;">
     
       
     <div class="sidebar-nav">
@@ -65,7 +72,7 @@ $table=$_SESSION['table'];
     </div>
     </div>
 
-    <div class="col-md-10" style="margin-top: 80px;">
+    <div class="col-sm-10" style="margin-top: 80px;">
     <div class="row" style="margin-left: 70%;">    
     	<div class="dropdown">
     <button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown" style="width: 300px; padding: 10px 10px 10px 10px;">Filter
@@ -108,17 +115,14 @@ $table=$_SESSION['table'];
  echo "
 <a href='$link' target='blank'></a><h2><b>$title</b></h2><a href='$link' target='blank'><p>$link</a></p><div style ='font:21px Arial,tahoma,sans-serif'>$desc</div><br>";
 echo "<div style ='font:21px Arial,tahoma,sans-serif'>"."RATING: ".$rating."</div><hr>";
-
-
 			}
-
 		}
 	}
 mysqli_close($DBcon);
 ?>
     </div>
     </div>
-  </div>
-</div>
+    </div>
+    </div>
 </body>
 </html>

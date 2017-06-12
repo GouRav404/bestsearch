@@ -79,7 +79,7 @@ body{
 
 	<div class="container" id="cont">
      <div class="row">
-     <div class="col-md-6" id="signin-form">
+     <div class="col-md-6 col-sm-6" id="signin-form">
         
        <form class="form-signin" method="post" id="register-form">
       
@@ -116,7 +116,7 @@ body{
       </form>
 
     </div>
-<div class="col-md-6">
+<div class="col-md-6 col-sm-6">
     <div class="row" style="margin-left: 60px;">
       <p style="color: #ffffff; font-size: 30px;"> If you are<br><b style="font-size: 48px;">&nbsp&nbsp&nbspnot willing to learn,</b><br>No one can help you.<br><br>If you are<br><b style="font-size: 48px;">&nbsp&nbsp&nbspDetermined to learn,</b><br>No one can stop you.</p>
     </div>

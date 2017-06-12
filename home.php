@@ -16,33 +16,42 @@ $youid=$_SESSION['userSession'];
 <script>
   var cat= none;
 </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
 </head>
   <body style="background-color:#696969">
 
   <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">Best Search Application</a>
+             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="home.php">Best Search Application</a>
         </div>
         
-            
-            <ul class="nav navbar-nav navbar-right">
+           <div class="collapse navbar-collapse" id="navbar"> 
+            <ul class="nav navbar-nav navbar-right" >
             <li><a href="#"><span class="glyphicon glyphicon-user"></span>&nbsp; <?php echo $youid; ?></a></li>
             <li><a href="logout.php?logout"><span class="glyphicon glyphicon-log-out"></span>&nbsp; Logout</a></li>
           </ul>
-        !--/.nav-collapse -->
+        <!--/.nav-collapse -->
+      </div>
       </div>
     </nav>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-2" style="margin-top: 80px;">
+    <div class="col-sm-2" style="margin-top: 80px;">
     
       
     <div class="sidebar-nav">
       <div class="navbar navbar-inverse" role="navigation">
-        <div class="navbar-collapse collapse sidebar-navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
+            <li class="active"><a href="home.php">Home</a></li>
             <li><a href="web.php?category=web" id="web">Web development</a></li>
         
             <li><a href="web.php?category=andriod" id="android">Android Development</a></li>
@@ -57,12 +66,11 @@ $youid=$_SESSION['userSession'];
             
             
           </ul>
-        </div>
       </div>
     </div>
     </div>
 
-    <div class="col-md-10" style="margin-top: 80px;">
+    <div class="col-sm-10" style="margin-top: 80px;">
 
     
       <div class="panel panel-danger">
@@ -70,7 +78,7 @@ $youid=$_SESSION['userSession'];
         <div class="panel-body" style="text-align:center;font-family:Verdana, Geneva, sans-serif;font-size:35px; background-color: #ffffe6">
             
             <p><br/><br>Welcome to home page</p><br /><br />
-            <p>You have successfully login. <br/><br/><br/><br/><br/>
+            <p>User <?php echo $youid; ?> you have successfully login. <br/><br/><br/><br/><br/>
             </p>
 
         </div>
@@ -80,7 +88,8 @@ $youid=$_SESSION['userSession'];
   </div>
 </div>
 
-	
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 
 </body>
 </html>
