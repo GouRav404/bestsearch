@@ -2,24 +2,26 @@
 session_start();
 include_once 'dbconnect.php';
 $youid=$_SESSION['userSession'];
+$table=$_SESSION['table'];
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Welcome </title>
+<title>Your Results</title>
 
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"> 
 <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen"> 
   <link rel="stylesheet" href="home.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="style.css" type="text/css" />
-<script>
-  var cat= none;
-</script>
-</head>
-  <body style="background-color:#696969">
 
-  <nav class="navbar navbar-inverse navbar-fixed-top">
+</head>
+<body style="background-color:#c8c8c8">
+<!--<?php //$youid=$_SESSION['userSession'];?>-->
+<nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand" href="#">Best Search Application</a>
@@ -32,7 +34,8 @@ $youid=$_SESSION['userSession'];
           </ul>
         !--/.nav-collapse -->
       </div>
-    </nav>
+</nav>
+
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-2" style="margin-top: 80px;">
@@ -42,7 +45,7 @@ $youid=$_SESSION['userSession'];
       <div class="navbar navbar-inverse" role="navigation">
         <div class="navbar-collapse collapse sidebar-navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
+             <li class="active"><a href="#">Home</a></li>
             <li><a href="web.php?category=web" id="web">Web development</a></li>
         
             <li><a href="web.php?category=andriod" id="android">Android Development</a></li>
@@ -63,24 +66,59 @@ $youid=$_SESSION['userSession'];
     </div>
 
     <div class="col-md-10" style="margin-top: 80px;">
-
+    <div class="row" style="margin-left: 70%;">    
+    	<div class="dropdown">
+    <button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown" style="width: 300px; padding: 10px 10px 10px 10px;">Filter
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu" style="width: 300px; background-color: #ffffff;">
+      <li><a href="filter.php?link=book">Book</a></li>
+      <li><a href="filter.php?link=video">Video</a></li>
+      <li><a href="filter.php?link=document">Document</a></li>
+    </ul>
+  </div>
+   
+    </div>
+    <div class="row" style="margin-top: 20px;">
     
-      <div class="panel panel-danger">
-        <div class="panel-heading" style="text-align:center;font-family:Verdana, Geneva, sans-serif;font-size: 25px;">Welcome</div>
-        <div class="panel-body" style="text-align:center;font-family:Verdana, Geneva, sans-serif;font-size:35px; background-color: #ffffe6">
-            
-            <p><br/><br>Welcome to home page</p><br /><br />
-            <p>You have successfully login. <br/><br/><br/><br/><br/>
-            </p>
+<?php
+	if(!empty($_GET['link']))
+	{
+		$t=$_GET['link'];
+		
+    $que="select id,title,description,url,Rating from " . $table . " where type='$t' order by rating desc";
+    if (!$que) 
+    {
+        echo 'MySQL Error: ' . mysqli_error();
+        exit;
+    }
+		$link=mysqli_query($DBcon,$que);
+		  
+    $r=mysqli_num_rows($link);
+    
+    if($r>0)
+		{
+			
+      foreach($link as $l)
+			{
+				$title=$l["title"];
+				$desc=$l["description"];
+				$link=$l["url"];
+				$rating=$l["Rating"];
+		
+ echo "
+<a href='$link' target='blank'></a><h2><b>$title</b></h2><a href='$link' target='blank'><p>$link</a></p><div style ='font:21px Arial,tahoma,sans-serif'>$desc</div><br>";
+echo "<div style ='font:21px Arial,tahoma,sans-serif'>"."RATING: ".$rating."</div><hr>";
 
-        </div>
-        
-      </div>
+
+			}
+
+		}
+	}
+mysqli_close($DBcon);
+?>
+    </div>
     </div>
   </div>
 </div>
-
-	
-
 </body>
 </html>

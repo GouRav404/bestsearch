@@ -5,6 +5,33 @@ body{
 	background:#f9f9f9;
 }
 
+
+
+
+
+.sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+    height: 80%;
+  }
+  .sidebar-nav .navbar ul {
+    float: none;
+  }
+  .sidebar-nav .navbar ul:not {
+    display: block;
+  }
+  .sidebar-nav .navbar li {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+
+
+
+
 .form-signin {
     max-width: 500px;
     padding: 19px 29px 29px;
@@ -36,10 +63,18 @@ body{
     padding: 7px 9px;
 }
 
-.signin-form
+#signin-form
 {
-	//border:solid red 1px;
-	margin-top:80px;
+	
+	
+  
+   padding-right: 5%;
+    height: 90%;
+
+}
+#cont
+{
+  margin-top:120px;
 }
 .navbar-brand{
 	font-family:"Lucida Handwriting";

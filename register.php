@@ -54,14 +54,32 @@ if(isset($_POST['btn-signup'])) {
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen"> 
 <link rel="stylesheet" href="style.css" type="text/css" />
-
+<style>
+body{
+  background: url('back1.jpg') no-repeat center center fixed; 
+  background-size: cover;
+}
+</style>
 </head>
 <body>
 
-<div class="signin-form">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Best Search Application</a>
+        </div>
+        
+            
+            <ul class="nav navbar-nav navbar-right">
+            
+          </ul>
+        !--/.nav-collapse -->
+      </div>
+</nav>
 
-	<div class="container">
-     
+	<div class="container" id="cont">
+     <div class="row">
+     <div class="col-md-6" id="signin-form">
         
        <form class="form-signin" method="post" id="register-form">
       
@@ -89,7 +107,7 @@ if(isset($_POST['btn-signup'])) {
      	<hr />
         
         <div class="form-group">
-            <button type="submit" class="btn btn-default" name="btn-signup">
+            <button type="submit" class="btn btn-primary" name="btn-signup">
     		<span class="glyphicon glyphicon-log-in"></span> &nbsp; Create Account
 			</button> 
             <a href="index.php" class="btn btn-default" style="float:right;">Log In Here</a>
@@ -98,8 +116,13 @@ if(isset($_POST['btn-signup'])) {
       </form>
 
     </div>
-    
-</div>
+<div class="col-md-6">
+    <div class="row" style="margin-left: 60px;">
+      <p style="color: #ffffff; font-size: 30px;"> If you are<br><b style="font-size: 48px;">&nbsp&nbsp&nbspnot willing to learn,</b><br>No one can help you.<br><br>If you are<br><b style="font-size: 48px;">&nbsp&nbsp&nbspDetermined to learn,</b><br>No one can stop you.</p>
+    </div>
+    </div>
+    </div>
+    </div>
 
 </body>
 </html>
