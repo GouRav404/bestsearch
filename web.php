@@ -16,7 +16,47 @@ $youid=$_SESSION['userSession'];
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="style.css" type="text/css" />
+<style>
+.dropbtn {
+    background-color: #700000;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
 
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #333333;
+}
+</style>
 </head>
 <body style="background-color:#c8c8c8">
 <!--<?php //$youid=$_SESSION['userSession'];?>-->
@@ -73,14 +113,13 @@ $youid=$_SESSION['userSession'];
     <div class="col-sm-10" style="margin-top: 80px;">
     <div class="row" style="margin-left: 70%;">    
     	<div class="dropdown">
-    <button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown" style="width: 300px; padding: 10px 10px 10px 10px;">Filter
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu" style="width: 300px; background-color: #ffffff;">
-      <li><a href="filter.php?link=book">Book</a></li>
-      <li><a href="filter.php?link=video">Video</a></li>
-      <li><a href="filter.php?link=document">Document</a></li>
-    </ul>
+  <button class="dropbtn" style="width: 300px; padding: 10px 10px 10px 10px;" >Filter</button>
+  <div class="dropdown-content" style="width: 300px;">
+    <a href="filter.php?link=book">Book</a>
+    <a href="filter.php?link=video">Video</a>
+    <a href="filter.php?link=document">Document</a>
   </div>
+</div>
    
     </div>
     <div class="row" style="margin-top: 20px;">
